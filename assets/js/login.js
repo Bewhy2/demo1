@@ -7,7 +7,7 @@ $(function () {
       $(".regiBox").show();
       // 隐藏登录界面
       $(".loginBox").hide();
-    });
+    }); 
   
     // 去登录
     $("#gotoLogin").click(function () {
@@ -64,7 +64,7 @@ $(function () {
       // axios
       // axios.post("http://ajax.frontend.itheima.net/api/reguser"); // 目前该根路径已经出问题，请更换
   
-      axios.post("/api/reguser", data).then((res) => {
+      axios.post("http://api-breakingnews-web.itheima.net/api/reguser", data).then((res) => {
         // console.log(res);
   
         // 实现弹框 layer.msg("只想弱弱提示");
@@ -87,8 +87,9 @@ $(function () {
   
       let data = $(this).serialize();
   
-      axios.post("/api/login", data).then((res) => {
-        console.log(res.data);
+      axios.post("http://api-breakingnews-web.itheima.net/api/login", data).then((res) => {
+        // console.log(res.data);
+
   
         if (res.data.status !== 0) {
           // 登录失败
@@ -99,7 +100,7 @@ $(function () {
   
         // 弹框提示
   
-        使用本地存储来存储token
+        // 使用本地存储来存储token
         localStorage.setItem("token", res.data.token);
   
         layer.msg("登录成功，即将跳转去首页！", function () {
